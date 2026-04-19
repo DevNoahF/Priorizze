@@ -1,6 +1,6 @@
 ﻿services:
   mysql:
-    image: mysql:latest
+    image: mysql:8.0.39
     container_name: priorizze_mysql
     restart: always
     environment:
@@ -12,7 +12,8 @@
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      -
+    env_file:
+      - .env
+
 volumes:
   mysql_data:
-
