@@ -7,5 +7,5 @@ public class JiraProjects
     public required string ProjectKey { get; set; }
     public required string Name { get; set; }
     public required string JiraUrl { get; set; }
-    public DateTime? LasSync { get; set; }
+    public DateTime? LastSync { get; set; }
 }
