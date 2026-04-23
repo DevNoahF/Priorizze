@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using priorizzeProject.Adapter.Persistence;
+using priorizzeProject.Adapter.UseCases;
+using priorizzeProject.Core.Interfaces;
 using System.Net.Sockets;
 using MySqlConnector;
 
@@ -34,6 +36,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<CreateUserUseCase>();
+builder.Services.AddScoped<CreateKeyResultUseCase>();
+builder.Services.AddScoped<CreateJiraSyncConfigUseCase>();
+builder.Services.AddScoped<IJiraProjectSyncUseCase, SyncJiraProjectUseCase>();
+
+builder.Services.AddScoped<IUserUseCase, CreateUserUseCase>();
+builder.Services.AddScoped<IKeyResultUseCase, CreateKeyResultUseCase>();
+builder.Services.AddScoped<IJiraSyncConfigUseCase, CreateJiraSyncConfigUseCase>();
+
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 

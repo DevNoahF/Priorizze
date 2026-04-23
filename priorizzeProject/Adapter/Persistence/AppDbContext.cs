@@ -19,6 +19,12 @@ public class AppDbContext : DbContext
 
     public DbSet<JiraProjects> JiraProjects { get; set; }
 
+    public DbSet<User> Users { get; set; }
+
+    public DbSet<KeyResult> KeyResults { get; set; }
+
+    public DbSet<JiraSyncConfig> JiraSyncConfigs { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -28,6 +34,12 @@ public class AppDbContext : DbContext
         ConfigureMetricsHistoryEntity(modelBuilder);
 
         ConfigureJiraProjectsEntity(modelBuilder);
+
+        ConfigureUserEntity(modelBuilder);
+
+        ConfigureKeyResultEntity(modelBuilder);
+
+        ConfigureJiraSyncConfigEntity(modelBuilder);
     }
 
     private static void ConfigureCycleEntity(ModelBuilder modelBuilder)
@@ -115,10 +127,136 @@ public class AppDbContext : DbContext
                 .IsRequired()
                 .HasMaxLength(255);
 
-            entity.Property(e => e.LasSync)
+            entity.Property(e => e.LastSync)
                 .IsRequired(false);
 
             entity.ToTable("JiraProjects");
         });
     }
+
+    private static void ConfigureUserEntity(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+
+            entity.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(150);
+
+            entity.Property(e => e.Email)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            entity.Property(e => e.Role)
+                .IsRequired()
+                .HasConversion<int>();
+
+            entity.Property(e => e.SquadName)
+                .HasMaxLength(150);
+
+            entity.Property(e => e.SquadJiraKey)
+                .HasMaxLength(64);
+
+            entity.Property(e => e.JiraTeamId)
+                .HasMaxLength(128);
+
+            entity.Property(e => e.JiraAccountId)
+                .IsRequired()
+                .HasMaxLength(64);
+
+            entity.Property(e => e.JiraEmail)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            entity.Property(e => e.JiraApiTokenEnc)
+                .IsRequired()
+                .HasMaxLength(512);
+
+            entity.Property(e => e.CreatedAt)
+                .IsRequired()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
+
+            entity.HasMany(e => e.JiraSyncConfigs)
+                .WithOne(e => e.User)
+                .HasForeignKey(e => e.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity.ToTable("Users");
+        });
+    }
+
+    private static void ConfigureKeyResultEntity(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<KeyResult>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+
+            entity.Property(e => e.OkrId)
+                .IsRequired();
+
+            entity.Property(e => e.Title)
+                .IsRequired()
+                .HasMaxLength(200);
+
+            entity.Property(e => e.Description)
+                .HasMaxLength(1000);
+
+            entity.Property(e => e.InitialValue)
+                .IsRequired();
+
+            entity.Property(e => e.GoalValue)
+                .IsRequired();
+
+            entity.Property(e => e.CurrentValue)
+                .IsRequired();
+
+            entity.Property(e => e.Unit)
+                .IsRequired()
+                .HasMaxLength(32);
+
+            entity.Property(e => e.LimitDate)
+                .IsRequired();
+
+            entity.Property(e => e.LastUpdated)
+                .IsRequired()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
+
+            entity.ToTable("KeyResults");
+        });
+    }
+
+    private static void ConfigureJiraSyncConfigEntity(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<JiraSyncConfig>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+
+            entity.Property(e => e.UserId)
+                .IsRequired();
+
+            entity.Property(e => e.ProjectKey)
+                .IsRequired()
+                .HasMaxLength(32);
+
+            entity.Property(e => e.Url)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            entity.Property(e => e.LastSync)
+                .IsRequired(false);
+
+            entity.ToTable("JiraSyncConfigs");
+        });
+    }
+
 }
