@@ -46,6 +46,9 @@ builder.Services.AddScoped<IUserUseCase, CreateUserUseCase>();
 builder.Services.AddScoped<IKeyResultUseCase, CreateKeyResultUseCase>();
 builder.Services.AddScoped<IJiraSyncConfigUseCase, CreateJiraSyncConfigUseCase>();
 
+builder.Services.AddScoped<CreateOkrUseCase>();
+builder.Services.AddScoped<SyncJiraTaskUseCase>();
+
 builder.Services.AddHttpClient();
 
 var app = builder.Build();

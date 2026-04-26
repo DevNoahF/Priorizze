@@ -112,6 +112,72 @@ namespace priorizzeProject.Migrations
                     b.ToTable("JiraSyncConfigs", (string)null);
                 });
 
+            modelBuilder.Entity("priorizzeProject.Core.Models.JiraTasks", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AssigneeAccountId")
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ExternalKey")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("IssueType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int?>("KpiId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PriorityName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTimeOffset?>("ResolvedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("SquadId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StatusName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<double?>("StoryPoints")
+                        .HasColumnType("double");
+
+                    b.Property<string>("Summary")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<DateTimeOffset>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExternalKey")
+                        .IsUnique();
+
+                    b.ToTable("Jira_Tasks", (string)null);
+                });
+
             modelBuilder.Entity("priorizzeProject.Core.Models.KeyResult", b =>
                 {
                     b.Property<Guid>("Id")
@@ -182,6 +248,50 @@ namespace priorizzeProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MetricsHistories", (string)null);
+                });
+
+            modelBuilder.Entity("priorizzeProject.Core.Models.OKRs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
+
+                    b.Property<int>("CycleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("varchar(1000)");
+
+                    b.Property<int>("DirectorId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FinishedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("ManagerId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasComment("Status do OKR (1=Ativo, 2=Pausado, 3=Concluido, 4=Criado, 5=Cancelado)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OKRs", (string)null);
                 });
 
             modelBuilder.Entity("priorizzeProject.Core.Models.User", b =>

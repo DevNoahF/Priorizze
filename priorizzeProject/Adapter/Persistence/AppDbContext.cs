@@ -24,6 +24,10 @@ public class AppDbContext : DbContext
     public DbSet<KeyResult> KeyResults { get; set; }
 
     public DbSet<JiraSyncConfig> JiraSyncConfigs { get; set; }
+    
+    public DbSet<OKRs> Okrs { get; set; }
+    
+    public DbSet<JiraTasks> JiraTasks { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -40,6 +44,107 @@ public class AppDbContext : DbContext
         ConfigureKeyResultEntity(modelBuilder);
 
         ConfigureJiraSyncConfigEntity(modelBuilder);
+        
+        ConfigureOKRsEntity(modelBuilder);
+        ConfigureJiraTasksEntity(modelBuilder);
+    }
+
+private static void ConfigureOKRsEntity(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<OKRs>(entity =>
+        {
+            // Chave primária
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+
+            entity.Property(e => e.Title)
+                .IsRequired()
+                .HasMaxLength(200);
+
+            entity.Property(e => e.Description)
+                .HasMaxLength(1000);
+
+            entity.Property(e => e.CycleId)
+                .IsRequired();
+
+            entity.Property(e => e.ManagerId)
+                .IsRequired();
+
+            // ManagerId é opcional (nullable = todos)
+            entity.Property(e => e.ManagerId);
+
+            entity.Property(e => e.Status)
+                .IsRequired()
+                .HasConversion<int>()
+                .HasComment("Status do OKR (1=Ativo, 2=Pausado, 3=Concluido, 4=Criado, 5=Cancelado)");
+
+            entity.Property(e => e.CreatedAt)
+                .IsRequired()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
+
+            entity.ToTable("OKRs");
+        });
+    }
+
+    private static void ConfigureJiraTasksEntity(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<JiraTasks>(entity =>
+        {
+            // Chave primária
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+
+            // Índice único para garantir que a key externa do Jira não seja duplicada no banco
+            entity.HasIndex(e => e.ExternalKey)
+                .IsUnique();
+
+            entity.Property(e => e.ExternalKey)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            entity.Property(e => e.Summary)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            entity.Property(e => e.ProjectId)
+                .IsRequired();
+
+            entity.Property(e => e.SquadId)
+                .IsRequired();
+
+            entity.Property(e => e.KpiId);
+
+            entity.Property(e => e.IssueType)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            entity.Property(e => e.StatusName)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            entity.Property(e => e.PriorityName)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            entity.Property(e => e.StoryPoints);
+
+            entity.Property(e => e.AssigneeAccountId)
+                .HasMaxLength(128);
+
+            entity.Property(e => e.CreatedAt)
+                .IsRequired();
+
+            entity.Property(e => e.ResolvedAt);
+
+            entity.Property(e => e.UpdatedAt)
+                .IsRequired();
+
+            entity.ToTable("Jira_Tasks");
+        });
     }
 
     private static void ConfigureCycleEntity(ModelBuilder modelBuilder)
