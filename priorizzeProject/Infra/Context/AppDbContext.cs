@@ -170,6 +170,8 @@ private static void ConfigureOKRsEntity(ModelBuilder modelBuilder)
                 .IsRequired()
                 .HasComment("Ano do ciclo");
 
+            entity.HasIndex(e => new { e.Year, e.CyclesEnum });
+
             // Nome da tabela
             entity.ToTable("Cycles", t => t.HasComment("Tabela de ciclos/trimestres"));
         });

@@ -41,6 +41,8 @@ namespace priorizzeProject.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Year", "CyclesEnum");
+
                     b.ToTable("Cycles", null, t =>
                         {
                             t.HasComment("Tabela de ciclos/trimestres");

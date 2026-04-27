@@ -1,9 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using priorizzeProject.Adapter.Persistence;
 using priorizzeProject.Adapter.UseCases;
+using priorizzeProject.Adapter.UseCases.JiraProjects;
+using priorizzeProject.Adapter.UseCases.Cycle;
 using priorizzeProject.Core.Interfaces;
 using System.Net.Sockets;
 using MySqlConnector;
+using priorizzeProject.Adapter.Persistence.Repositories;
+using priorizzeProject.Core.Interfaces.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +52,13 @@ builder.Services.AddScoped<IJiraSyncConfigUseCase, CreateJiraSyncConfigUseCase>(
 
 builder.Services.AddScoped<CreateOkrUseCase>();
 builder.Services.AddScoped<SyncJiraTaskUseCase>();
+
+// JiraProjects and Cycles UseCases
+builder.Services.AddScoped<IJiraProjectsUseCase, CreateJiraProjectsUseCase>();
+builder.Services.AddScoped<ICycleUseCase, CreateCycleUseCase>();
+builder.Services.AddScoped<ICycleRepository, CycleRepository>();
+builder.Services.AddScoped<IJiraProjectsRepository, JiraProjectsRepository>();
+builder.Services.AddScoped<IMetricsHistoryRepository, MetricsHistoryRepository>();
 
 builder.Services.AddHttpClient();
 
