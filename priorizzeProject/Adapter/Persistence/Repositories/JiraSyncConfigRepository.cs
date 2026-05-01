@@ -1,33 +1,33 @@
 using Microsoft.EntityFrameworkCore;
-using priorizzeProject.Core.Interfaces;
-using priorizzeProject.Adapter.Persistence;
+using priorizzeProject.Core.Interfaces.Repositories;
 using priorizzeProject.Core.Models;
 
-namespace priorizzeProject.Adapter.UseCases;
+namespace priorizzeProject.Adapter.Persistence.Repositories;
 
-public class CreateJiraSyncConfigUseCase : IJiraSyncConfigUseCase
+public class JiraSyncConfigRepository : IJiraSyncConfigRepository
 {
     private readonly AppDbContext _dbContext;
 
-    public CreateJiraSyncConfigUseCase(AppDbContext dbContext)
+    public JiraSyncConfigRepository(AppDbContext dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task<JiraSyncConfig> ExecuteAsync(
-        Guid userId,
-        string projectKey,
-        string url)
+    public async Task<JiraSyncConfig> AddAsync(JiraSyncConfig syncConfig)
     {
-        var syncConfig = new JiraSyncConfig(userId, projectKey, url);
-
         _dbContext.JiraSyncConfigs.Add(syncConfig);
         await _dbContext.SaveChangesAsync();
-
         return syncConfig;
     }
 
     public async Task<JiraSyncConfig?> GetByIdAsync(Guid id)
+    {
+        return await _dbContext.JiraSyncConfigs
+            .Include(syncConfig => syncConfig.User)
+            .FirstOrDefaultAsync(syncConfig => syncConfig.Id == id);
+    }
+
+    public async Task<JiraSyncConfig?> GetByIdWithUserAsync(Guid id)
     {
         return await _dbContext.JiraSyncConfigs
             .Include(syncConfig => syncConfig.User)
@@ -41,18 +41,10 @@ public class CreateJiraSyncConfigUseCase : IJiraSyncConfigUseCase
             .ToListAsync();
     }
 
-    public async Task<bool> MarkSyncedAsync(Guid id, DateTime syncTime)
+    public async Task<JiraSyncConfig> UpdateAsync(JiraSyncConfig syncConfig)
     {
-        var syncConfig = await _dbContext.JiraSyncConfigs.FirstOrDefaultAsync(syncConfig => syncConfig.Id == id);
-
-        if (syncConfig is null)
-        {
-            return false;
-        }
-
-        syncConfig.MarkSynced(syncTime);
+        _dbContext.JiraSyncConfigs.Update(syncConfig);
         await _dbContext.SaveChangesAsync();
-
-        return true;
+        return syncConfig;
     }
 }

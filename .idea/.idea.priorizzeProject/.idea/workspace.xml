@@ -7,26 +7,57 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="CMakeSettings">
-    <configurations />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="e4cb9e1b-5e3a-4ad2-97d0-2c7844726702" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/ChangeOkrStatusRequestDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/ChangeOkrStatusUseCase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/Jira/ISyncJiraTaskUseCase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/OKR/IChangeOkrStatusUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources/5f14e49b-3737-49b7-adff-eaf25284af67.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources/5f14e49b-3737-49b7-adff-eaf25284af67.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Controllers/JiraTasksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Controllers/JiraTasksController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/SyncJiraTaskUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/SyncJiraTaskUseCase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Core/Models/JiraTasks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Core/Models/JiraTasks.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Core/Models/OKRs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Core/Models/OKRs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/CreateJiraSyncConfigRequestDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/Jira/CreateJiraSyncConfigRequestDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/CreateKeyResultRequestDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/KeyResult/CreateKeyResultRequestDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/CreateOkrRequestDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/Okr/CreateOkrRequestDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/CreateUserRequestDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/User/CreateUserRequestDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/SyncJiraTaskRequestDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/Jira/SyncJiraTaskRequestDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/UpdateOkrResquestDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/Okr/UpdateOkrResquestDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/JiraProjectResponseDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/Jira/JiraProjectResponseDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/JiraProjectSyncResponseDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/Jira/JiraProjectSyncResponseDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/JiraSyncConfigResponseDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/Jira/JiraSyncConfigResponseDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/JiraTaskResponseDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/Jira/JiraTaskResponseDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/KeyResultResponseDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/KeyResult/KeyResultResponseDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/OkrResponseDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/Okr/OkrResponseDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/UserResponseDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/User/UserResponseDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/CreateJiraSyncConfigUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/Jira/CreateJiraSyncConfigUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/CreateKeyResultUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/KeyResult/CreateKeyResultUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/CreateOkrUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/Okr/CreateOkrUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/CreateUserUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/User/CreateUserUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/SyncJiraProjectUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/Jira/SyncJiraProjectUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/SyncJiraTaskUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/Jira/SyncJiraTaskUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/UpdateKeyResultValueSyncUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/KeyResult/UpdateKeyResultValueSyncUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/priorizzeProject/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/Noahv/PriorizzeProjeto" value="3Cremkvx7KjA0PfBIxgU0ctKB4b" />
+    </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="chat-panel" value="Claude Haiku 4.5" />
+      <entry key="agent-panel" value="Claude Haiku 4.5" />
+    </selectedModels>
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="5f14e49b-3737-49b7-adff-eaf25284af67" value="Green" />
+    </colors>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,31 +68,21 @@
     &quot;assignee&quot;: &quot;LucasHygidio&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/DevNoahF/Priorizze.git&quot;,
-    &quot;accountId&quot;: &quot;1cccb177-edfa-4872-a1a8-ccc8d0820ee8&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DevNoahF/Priorizze.git",
+    "accountId": "02e3fde3-138b-4f93-8a87-2a5f74080f33"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Controllers/JiraTasksController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Controllers/OkrsController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/ChangeOkrStatusRequestDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/CreateOkrRequestDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/SyncJiraTaskRequestDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/UpdateOkrResquestDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/JiraTaskResponseDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/OkrResponseDto.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/ChangeOkrStatusUseCase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/CreateOkrUseCase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/SyncJiraTaskUseCase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/Jira/IJiraTasksUseCase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/Jira/ISyncJiraTaskUseCase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/OKR/IChangeOkrStatusUseCase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/OKR/IOKRUseCase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Models/Enums/OkrStatusEnum.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Models/JiraTasks.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
   <component name="KubernetesApiProvider"><![CDATA[{
   "isMigrated": true
 }]]></component>
@@ -69,7 +90,6 @@
     <commands />
     <urls />
   </component>
-  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -82,22 +102,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;development-lucas&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Docker.compose.yaml.mysql: Compose Deployment.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="compose.yaml.mysql: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mysql" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="compose.yaml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.compose.yaml.mysql: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e4cb9e1b-5e3a-4ad2-97d0-2c7844726702" name="Changes" comment="" />
@@ -106,13 +159,13 @@
       <option name="presentableId" value="Default" />
       <updated>1777148278916</updated>
       <workItem from="1777148278918" duration="5533000" />
+      <workItem from="1777242525443" duration="2555000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
@@ -137,5 +190,13 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

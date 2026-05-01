@@ -1,5 +1,7 @@
 bin/
 obj/
 /packages/
+.vs/
+.dotnet-home/
 riderModule.iml
 /_ReSharper.Caches/

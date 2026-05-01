@@ -1,30 +1,31 @@
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using Microsoft.EntityFrameworkCore;
 using priorizzeProject.Adapter.Dtos.Responses;
-using priorizzeProject.Adapter.Persistence;
 using priorizzeProject.Core.Interfaces;
-using priorizzeProject.Core.Models;
+using priorizzeProject.Core.Interfaces.Repositories;
 
 namespace priorizzeProject.Adapter.UseCases;
 
 public class SyncJiraProjectUseCase : IJiraProjectSyncUseCase
 {
-    private readonly AppDbContext _dbContext;
     private readonly IHttpClientFactory _httpClientFactory;
+    private readonly IJiraProjectsRepository _jiraProjectsRepository;
+    private readonly IJiraSyncConfigRepository _jiraSyncConfigRepository;
 
-    public SyncJiraProjectUseCase(AppDbContext dbContext, IHttpClientFactory httpClientFactory)
+    public SyncJiraProjectUseCase(
+        IHttpClientFactory httpClientFactory,
+        IJiraProjectsRepository jiraProjectsRepository,
+        IJiraSyncConfigRepository jiraSyncConfigRepository)
     {
-        _dbContext = dbContext;
         _httpClientFactory = httpClientFactory;
+        _jiraProjectsRepository = jiraProjectsRepository;
+        _jiraSyncConfigRepository = jiraSyncConfigRepository;
     }
 
-    public async Task<JiraProjects> ExecuteAsync(Guid jiraSyncConfigId)
+    public async Task<Core.Models.JiraProjects> ExecuteAsync(Guid jiraSyncConfigId)
     {
-        var syncConfig = await _dbContext.JiraSyncConfigs
-            .Include(config => config.User)
-            .FirstOrDefaultAsync(config => config.Id == jiraSyncConfigId);
+        var syncConfig = await _jiraSyncConfigRepository.GetByIdWithUserAsync(jiraSyncConfigId);
 
         if (syncConfig is null)
         {
@@ -49,12 +50,12 @@ public class SyncJiraProjectUseCase : IJiraProjectSyncUseCase
         var projectResponse = await GetProjectFromJiraAsync(syncConfig.Url, syncConfig.ProjectKey, syncConfig.User.JiraEmail, syncConfig.User.JiraApiTokenEnc);
         var syncedAt = DateTime.UtcNow;
 
-        var jiraProject = await _dbContext.JiraProjects
-            .FirstOrDefaultAsync(project => project.JiraId == projectResponse.Id || project.ProjectKey == projectResponse.Key);
+        var jiraProject = await _jiraProjectsRepository
+            .GetByJiraIdOrProjectKeyAsync(projectResponse.Id, projectResponse.Key);
 
         if (jiraProject is null)
         {
-            jiraProject = new JiraProjects
+            jiraProject = new Core.Models.JiraProjects
             {
                 JiraId = projectResponse.Id,
                 ProjectKey = projectResponse.Key,
@@ -63,7 +64,7 @@ public class SyncJiraProjectUseCase : IJiraProjectSyncUseCase
                 LastSync = syncedAt
             };
 
-            _dbContext.JiraProjects.Add(jiraProject);
+            jiraProject = await _jiraProjectsRepository.AddAsync(jiraProject);
         }
         else
         {
@@ -72,10 +73,12 @@ public class SyncJiraProjectUseCase : IJiraProjectSyncUseCase
             jiraProject.Name = projectResponse.Name;
             jiraProject.JiraUrl = projectResponse.Self;
             jiraProject.LastSync = syncedAt;
+
+            jiraProject = await _jiraProjectsRepository.UpdateAsync(jiraProject);
         }
 
-        syncConfig.MarkSynced(syncedAt);
-        await _dbContext.SaveChangesAsync();
+        syncConfig.LastSync = syncedAt;
+        await _jiraSyncConfigRepository.UpdateAsync(syncConfig);
 
         return jiraProject;
     }
