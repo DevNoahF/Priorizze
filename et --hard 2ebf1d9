@@ -1,0 +1,21 @@
+[33m67a513e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelopment-lucas[m[33m, [m[1;31morigin/development-lucas[m[33m)[m HEAD@{0}: checkout: moving from main to development-lucas
+[33m458b9ec[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{1}: checkout: moving from development-lucas to main
+[33m67a513e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelopment-lucas[m[33m, [m[1;31morigin/development-lucas[m[33m)[m HEAD@{2}: commit (merge): resolvendo conflitos e finalizando merge da main
+[33m2ebf1d9[m HEAD@{3}: checkout: moving from main to development-lucas
+[33m458b9ec[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{4}: commit: atualizando o gitignore
+[33m5a2e634[m HEAD@{5}: checkout: moving from main to main
+[33m5a2e634[m HEAD@{6}: branch: Reset to origin/main
+[33m5a2e634[m HEAD@{7}: pull origin main: Fast-forward
+[33mc2cc53f[m HEAD@{8}: checkout: moving from development-lucas to main
+[33m2ebf1d9[m HEAD@{9}: checkout: moving from development-lucas to development-lucas
+[33m2ebf1d9[m HEAD@{10}: branch: Reset to origin/development-lucas
+[33m2ebf1d9[m HEAD@{11}: checkout: moving from development-lucas to development-lucas
+[33m2ebf1d9[m HEAD@{12}: branch: Reset to origin/development-lucas
+[33m2ebf1d9[m HEAD@{13}: checkout: moving from main to development-lucas
+[33mc2cc53f[m HEAD@{14}: merge origin/main: Fast-forward
+[33m562d1cf[m HEAD@{15}: checkout: moving from development-lucas to main
+[33m2ebf1d9[m HEAD@{16}: commit: fix-transformando funcoes das entidades em useCases
+[33mfb3c63f[m HEAD@{17}: checkout: moving from main to development-lucas
+[33m562d1cf[m HEAD@{18}: checkout: moving from development-lucas to main
+[33mfb3c63f[m HEAD@{19}: checkout: moving from main to development-lucas
+[33m562d1cf[m HEAD@{20}: clone: from https://github.com/DevNoahF/Priorizze.git

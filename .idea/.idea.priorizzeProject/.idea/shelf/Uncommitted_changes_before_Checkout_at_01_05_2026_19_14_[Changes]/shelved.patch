@@ -1,0 +1,53 @@
+Index: priorizzeProject/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/.env\r\n/appsettings.json
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/priorizzeProject/.gitignore b/priorizzeProject/.gitignore
+--- a/priorizzeProject/.gitignore	(revision 2ebf1d999b98a08911d9d7fc19d81fd627516ebc)
++++ b/priorizzeProject/.gitignore	(date 1777672416060)
+@@ -1,2 +1,3 @@
+ /.env
+-/appsettings.json
+\ No newline at end of file
++/appsettings.json
++/appsettings.Development.json
+\ No newline at end of file
+Index: priorizzeProject/appsettings.Development.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"ConnectionStrings\": {\r\n    \"DefaultConnection\": \"Server=localhost;Database=priorizzeproject;User=;Password=;Port=3306\"\r\n  },\r\n  \"Logging\": {\r\n    \"LogLevel\": {\r\n      \"Default\": \"Information\",\r\n      \"Microsoft.AspNetCore\": \"Warning\"\r\n    }\r\n  }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-16BE
+===================================================================
+diff --git a/priorizzeProject/appsettings.Development.json b/priorizzeProject/appsettings.Development.json
+--- a/priorizzeProject/appsettings.Development.json	(revision 2ebf1d999b98a08911d9d7fc19d81fd627516ebc)
++++ b/priorizzeProject/appsettings.Development.json	(date 1777671989245)
+@@ -1,6 +1,6 @@
+ {
+   "ConnectionStrings": {
+-    "DefaultConnection": "Server=localhost;Database=priorizzeproject;User=;Password=;Port=3306"
++    "DefaultConnection": "Server=localhost;Port=3307;Database=priorizze_database;Uid=priorizze_user;Pwd=priorizze_password;"
+   },
+   "Logging": {
+     "LogLevel": {
+Index: priorizzeProject/appsettings.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"ConnectionStrings\": {\r\n    \"DefaultConnection\": \"Server=localhost;Port=3306;Database=priorizzeproject;Uid=priorize_user;Pwd=priorize_password\"\r\n  },\r\n  \"Logging\": {\r\n    \"LogLevel\": {\r\n      \"Default\": \"Information\",\r\n      \"Microsoft.AspNetCore\": \"Warning\"\r\n    }\r\n  },\r\n  \"AllowedHosts\": \"*\"\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-16BE
+===================================================================
+diff --git a/priorizzeProject/appsettings.json b/priorizzeProject/appsettings.json
+--- a/priorizzeProject/appsettings.json	(revision 2ebf1d999b98a08911d9d7fc19d81fd627516ebc)
++++ b/priorizzeProject/appsettings.json	(date 1777671996993)
+@@ -1,6 +1,6 @@
+ {
+   "ConnectionStrings": {
+-    "DefaultConnection": "Server=localhost;Port=3306;Database=priorizzeproject;Uid=priorize_user;Pwd=priorize_password"
++    "DefaultConnection": "Server=localhost;Port=3307;Database=priorizze_database;Uid=priorizze_user;Pwd=priorizze_password;"
+   },
+   "Logging": {
+     "LogLevel": {
