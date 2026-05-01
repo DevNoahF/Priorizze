@@ -24,15 +24,17 @@ public class CreateKeyResultUseCase : IKeyResultUseCase
         DateTime limitDate,
         string? description = null)
     {
-        var keyResult = new KeyResult(
-            okrId,
-            title,
-            initialValue,
-            goalValue,
-            currentValue,
-            unit,
-            limitDate,
-            description);
+        var keyResult = new KeyResult
+        {
+            OkrId = okrId,
+            Title = title,
+            Description = description,
+            InitialValue = initialValue,
+            GoalValue = goalValue,
+            CurrentValue = currentValue,
+            Unit = unit,
+            LimitDate = limitDate
+        };
 
         _dbContext.KeyResults.Add(keyResult);
         await _dbContext.SaveChangesAsync();
@@ -61,7 +63,8 @@ public class CreateKeyResultUseCase : IKeyResultUseCase
             return false;
         }
 
-        keyResult.UpdateCurrentValue(currentValue);
+        keyResult.CurrentValue = currentValue;
+        keyResult.LastUpdated = DateTime.UtcNow;
         await _dbContext.SaveChangesAsync();
 
         return true;

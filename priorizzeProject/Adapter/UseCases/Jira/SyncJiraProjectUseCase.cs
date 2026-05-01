@@ -81,7 +81,7 @@ public class SyncJiraProjectUseCase : IJiraProjectSyncUseCase
             jiraProject = await _jiraProjectsRepository.UpdateAsync(jiraProject);
         }
 
-        syncConfig.MarkSynced(syncedAt);
+        syncConfig.LastSync = syncedAt;
         await _dbContext.SaveChangesAsync();
 
         return jiraProject;

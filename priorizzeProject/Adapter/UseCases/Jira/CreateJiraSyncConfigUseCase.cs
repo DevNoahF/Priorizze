@@ -19,7 +19,12 @@ public class CreateJiraSyncConfigUseCase : IJiraSyncConfigUseCase
         string projectKey,
         string url)
     {
-        var syncConfig = new JiraSyncConfig(userId, projectKey, url);
+        var syncConfig = new JiraSyncConfig
+        {
+            UserId = userId,
+            ProjectKey = projectKey,
+            Url = url
+        };
 
         _dbContext.JiraSyncConfigs.Add(syncConfig);
         await _dbContext.SaveChangesAsync();
@@ -50,7 +55,7 @@ public class CreateJiraSyncConfigUseCase : IJiraSyncConfigUseCase
             return false;
         }
 
-        syncConfig.MarkSynced(syncTime);
+        syncConfig.LastSync = syncTime;
         await _dbContext.SaveChangesAsync();
 
         return true;
