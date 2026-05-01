@@ -1,17 +1,16 @@
-using Microsoft.EntityFrameworkCore;
 using priorizzeProject.Core.Interfaces;
-using priorizzeProject.Adapter.Persistence;
+using priorizzeProject.Core.Interfaces.Repositories;
 using priorizzeProject.Core.Models;
 
 namespace priorizzeProject.Adapter.UseCases;
 
 public class CreateKeyResultUseCase : IKeyResultUseCase
 {
-    private readonly AppDbContext _dbContext;
+    private readonly IKeyResultRepository _keyResultRepository;
 
-    public CreateKeyResultUseCase(AppDbContext dbContext)
+    public CreateKeyResultUseCase(IKeyResultRepository keyResultRepository)
     {
-        _dbContext = dbContext;
+        _keyResultRepository = keyResultRepository;
     }
 
     public async Task<KeyResult> ExecuteAsync(
@@ -36,27 +35,22 @@ public class CreateKeyResultUseCase : IKeyResultUseCase
             LimitDate = limitDate
         };
 
-        _dbContext.KeyResults.Add(keyResult);
-        await _dbContext.SaveChangesAsync();
-
-        return keyResult;
+        return await _keyResultRepository.AddAsync(keyResult);
     }
 
     public async Task<KeyResult?> GetByIdAsync(Guid id)
     {
-        return await _dbContext.KeyResults.FirstOrDefaultAsync(keyResult => keyResult.Id == id);
+        return await _keyResultRepository.GetByIdAsync(id);
     }
 
     public async Task<List<KeyResult>> GetByOkrIdAsync(Guid okrId)
     {
-        return await _dbContext.KeyResults
-            .Where(keyResult => keyResult.OkrId == okrId)
-            .ToListAsync();
+        return await _keyResultRepository.GetByOkrIdAsync(okrId);
     }
 
     public async Task<bool> UpdateCurrentValueAsync(Guid id, decimal currentValue)
     {
-        var keyResult = await _dbContext.KeyResults.FirstOrDefaultAsync(keyResult => keyResult.Id == id);
+        var keyResult = await _keyResultRepository.GetByIdAsync(id);
 
         if (keyResult is null)
         {
@@ -65,7 +59,7 @@ public class CreateKeyResultUseCase : IKeyResultUseCase
 
         keyResult.CurrentValue = currentValue;
         keyResult.LastUpdated = DateTime.UtcNow;
-        await _dbContext.SaveChangesAsync();
+        await _keyResultRepository.UpdateAsync(keyResult);
 
         return true;
     }

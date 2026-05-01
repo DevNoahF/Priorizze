@@ -1,9 +1,7 @@
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using Microsoft.EntityFrameworkCore;
 using priorizzeProject.Adapter.Dtos.Responses;
-using priorizzeProject.Adapter.Persistence;
 using priorizzeProject.Core.Interfaces;
 using priorizzeProject.Core.Interfaces.Repositories;
 
@@ -11,25 +9,23 @@ namespace priorizzeProject.Adapter.UseCases;
 
 public class SyncJiraProjectUseCase : IJiraProjectSyncUseCase
 {
-    private readonly AppDbContext _dbContext;
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly IJiraProjectsRepository _jiraProjectsRepository;
+    private readonly IJiraSyncConfigRepository _jiraSyncConfigRepository;
 
     public SyncJiraProjectUseCase(
-        AppDbContext dbContext,
         IHttpClientFactory httpClientFactory,
-        IJiraProjectsRepository jiraProjectsRepository)
+        IJiraProjectsRepository jiraProjectsRepository,
+        IJiraSyncConfigRepository jiraSyncConfigRepository)
     {
-        _dbContext = dbContext;
         _httpClientFactory = httpClientFactory;
         _jiraProjectsRepository = jiraProjectsRepository;
+        _jiraSyncConfigRepository = jiraSyncConfigRepository;
     }
 
     public async Task<Core.Models.JiraProjects> ExecuteAsync(Guid jiraSyncConfigId)
     {
-        var syncConfig = await _dbContext.JiraSyncConfigs
-            .Include(config => config.User)
-            .FirstOrDefaultAsync(config => config.Id == jiraSyncConfigId);
+        var syncConfig = await _jiraSyncConfigRepository.GetByIdWithUserAsync(jiraSyncConfigId);
 
         if (syncConfig is null)
         {
@@ -82,7 +78,7 @@ public class SyncJiraProjectUseCase : IJiraProjectSyncUseCase
         }
 
         syncConfig.LastSync = syncedAt;
-        await _dbContext.SaveChangesAsync();
+        await _jiraSyncConfigRepository.UpdateAsync(syncConfig);
 
         return jiraProject;
     }
