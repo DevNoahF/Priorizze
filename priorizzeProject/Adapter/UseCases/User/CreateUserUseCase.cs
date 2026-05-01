@@ -26,16 +26,18 @@ public class CreateUserUseCase : IUserUseCase
         string? squadJiraKey = null,
         string? jiraTeamId = null)
     {
-        var user = new User(
-            name,
-            email,
-            role,
-            jiraAccountId,
-            jiraEmail,
-            jiraApiTokenEnc,
-            squadName,
-            squadJiraKey,
-            jiraTeamId);
+        var user = new User
+        {
+            Name = name,
+            Email = email,
+            Role = role,
+            JiraAccountId = jiraAccountId,
+            JiraEmail = jiraEmail,
+            JiraApiTokenEnc = jiraApiTokenEnc,
+            SquadName = squadName,
+            SquadJiraKey = squadJiraKey,
+            JiraTeamId = jiraTeamId
+        };
 
         _dbContext.Users.Add(user);
         await _dbContext.SaveChangesAsync();
