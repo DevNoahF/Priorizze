@@ -43,23 +43,6 @@ public class OKRs
 
     public OKRs()
     {
-        
-    }
 
-
-    public void IniciarOkr()
-    {
-        if (Status == OkrStatusEnum.Criado)
-            Status = OkrStatusEnum.Ativo;
-    }
-
-    public void FinalizarOkr()
-    {
-        Status = OkrStatusEnum.Concluido;
-    }
-
-    public void CancelarOkr()
-    {
-        Status = OkrStatusEnum.Cancelado;
     }
 }

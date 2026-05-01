@@ -7,34 +7,21 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeSettings">
+    <configurations />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e4cb9e1b-5e3a-4ad2-97d0-2c7844726702" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources/10469da7-6bfd-491d-b9f7-ad310785c1f5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources/10469da7-6bfd-491d-b9f7-ad310785c1f5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources/10469da7-6bfd-491d-b9f7-ad310785c1f5/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/ChangeOkrStatusRequestDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/ChangeOkrStatusUseCase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/Jira/ISyncJiraTaskUseCase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/OKR/IChangeOkrStatusUseCase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources/5f14e49b-3737-49b7-adff-eaf25284af67.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.priorizzeProject/.idea/dataSources/5f14e49b-3737-49b7-adff-eaf25284af67.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Controllers/JiraTasksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Controllers/JiraTasksController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Controllers/OkrsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Controllers/OkrsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/CreateOkrRequestDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/CreateOkrRequestDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/SyncJiraTaskRequestDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/SyncJiraTaskRequestDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/UpdateOkrResquestDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/UpdateOkrResquestDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/JiraTaskResponseDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/JiraTaskResponseDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/OkrResponseDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/OkrResponseDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/Persistence/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/Persistence/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/CreateOkrUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/CreateOkrUseCase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/SyncJiraTaskUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/SyncJiraTaskUseCase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/Jira/IJiraTasksUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/Jira/IJiraTasksUseCase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/OKR/IOkrUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/OKR/IOkrUseCase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Core/Models/Enums/OkrStatusEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Core/Models/Enums/OkrStatusEnum.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/priorizzeProject/Core/Models/JiraTasks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Core/Models/JiraTasks.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/priorizzeProject/Core/Models/OKRs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Core/Models/OKRs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/priorizzeProject/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priorizzeProject/priorizzeProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/priorizzeProject/priorizzeProject.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,38 +31,49 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "LucasHygidio"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;LucasHygidio&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DevNoahF/Priorizze.git",
-    "accountId": "1cccb177-edfa-4872-a1a8-ccc8d0820ee8"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DevNoahF/Priorizze.git&quot;,
+    &quot;accountId&quot;: &quot;1cccb177-edfa-4872-a1a8-ccc8d0820ee8&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/33826c675ddea673799e89a3e7c0693a4d35caa976e5fcaef57f1526a8467ee/ConfigurationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Controllers/JiraTasksController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Controllers/OkrsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/ChangeOkrStatusRequestDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/CreateOkrRequestDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/SyncJiraTaskRequestDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Requests/UpdateOkrResquestDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/JiraTaskResponseDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/Dtos/Responses/OkrResponseDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/ChangeOkrStatusUseCase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/CreateOkrUseCase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Adapter/UseCases/SyncJiraTaskUseCase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/Jira/IJiraTasksUseCase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/Jira/ISyncJiraTaskUseCase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/OKR/IChangeOkrStatusUseCase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Interfaces/UseCases/OKR/IOKRUseCase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Models/Enums/OkrStatusEnum.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/priorizzeProject/Core/Models/JiraTasks.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
 }]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="3Cremkvx7KjA0PfBIxgU0ctKB4b" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -84,22 +82,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "development-lucas",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development-lucas&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e4cb9e1b-5e3a-4ad2-97d0-2c7844726702" name="Changes" comment="" />
@@ -114,6 +112,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />

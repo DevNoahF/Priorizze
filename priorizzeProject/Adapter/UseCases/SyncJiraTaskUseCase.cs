@@ -3,10 +3,12 @@ using priorizzeProject.Adapter.Dtos.Requests;
 using priorizzeProject.Adapter.Dtos.Responses;
 using priorizzeProject.Adapter.Persistence;
 using priorizzeProject.Core.Models;
+// 1. Importante: Adicionamos o namespace onde a interface está
+using priorizzeProject.Core.Interfaces; 
 
 namespace priorizzeProject.Adapter.UseCases;
 
-public class SyncJiraTaskUseCase
+public class SyncJiraTaskUseCase : ISyncJiraTaskUseCase 
 {
     private readonly AppDbContext _dbContext;
 
@@ -14,18 +16,16 @@ public class SyncJiraTaskUseCase
     {
         _dbContext = dbContext;
     }
-
+    
     public async Task<JiraTaskResponseDto?> ExecuteAsync(SyncJiraTaskRequestDto request)
     {
         try
         {
-            // Busca se a tarefa já existe no banco pela Key do Jira (ex: PROJ-123)
             var task = await _dbContext.JiraTasks
                 .FirstOrDefaultAsync(t => t.ExternalKey == request.ExternalKey);
 
             if (task == null)
             {
-                // Cenário 1: Criar nova tarefa
                 task = new JiraTasks
                 {
                     ExternalKey = request.ExternalKey,
@@ -61,8 +61,6 @@ public class SyncJiraTaskUseCase
             }
 
             await _dbContext.SaveChangesAsync();
-
-            // Retorna o DTO de resposta para confirmar o sucesso
             return new JiraTaskResponseDto
             {
                 Id = task.Id,

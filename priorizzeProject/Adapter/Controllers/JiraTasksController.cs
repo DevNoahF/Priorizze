@@ -1,17 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using priorizzeProject.Adapter.Dtos.Requests;
-using priorizzeProject.Adapter.UseCases;
+using priorizzeProject.Core.Interfaces;
 
 namespace priorizzeProject.Adapter.Controllers;
-
 
 [ApiController]
 [Route("api/[controller]")]
 public class JiraTasksController : ControllerBase
 {
-    private readonly SyncJiraTaskUseCase _syncJiraTaskUseCase;
+    // 2. Trocamos a classe concreta pela Interface
+    private readonly ISyncJiraTaskUseCase _syncJiraTaskUseCase;
 
-    public JiraTasksController(SyncJiraTaskUseCase syncJiraTaskUseCase)
+    // 3. Injetamos a Interface no construtor
+    public JiraTasksController(ISyncJiraTaskUseCase syncJiraTaskUseCase)
     {
         _syncJiraTaskUseCase = syncJiraTaskUseCase;
     }

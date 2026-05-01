@@ -47,13 +47,12 @@ builder.Services.AddScoped<IKeyResultUseCase, CreateKeyResultUseCase>();
 builder.Services.AddScoped<IJiraSyncConfigUseCase, CreateJiraSyncConfigUseCase>();
 
 builder.Services.AddScoped<CreateOkrUseCase>();
-builder.Services.AddScoped<SyncJiraTaskUseCase>();
+builder.Services.AddScoped<ISyncJiraTaskUseCase, SyncJiraTaskUseCase>();
 
 builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
-// Apply database migrations automatically in development (with error handling)
 if (app.Environment.IsDevelopment())
 {
     using var scope = app.Services.CreateScope();

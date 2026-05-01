@@ -95,20 +95,7 @@ public class JiraTasks
 
     public JiraTasks()
     {
-        
+
     }
 
-    public void SyncWithJiraApi(string summary, string statusName, string priorityName, 
-        string? assigneeAccountId, double? storyPoints, 
-        DateTimeOffset? resolvedAt, DateTimeOffset jiraUpdatedAt)
-    {
-        Summary = summary;
-        StatusName = statusName;
-        PriorityName = priorityName;
-        AssigneeAccountId = assigneeAccountId;
-        StoryPoints = storyPoints;
-        ResolvedAt = resolvedAt;
-        UpdatedAt = jiraUpdatedAt; 
-    }
-    
 }
