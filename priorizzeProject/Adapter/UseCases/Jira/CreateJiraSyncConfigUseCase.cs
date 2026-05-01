@@ -1,17 +1,16 @@
-using Microsoft.EntityFrameworkCore;
 using priorizzeProject.Core.Interfaces;
-using priorizzeProject.Adapter.Persistence;
+using priorizzeProject.Core.Interfaces.Repositories;
 using priorizzeProject.Core.Models;
 
 namespace priorizzeProject.Adapter.UseCases;
 
 public class CreateJiraSyncConfigUseCase : IJiraSyncConfigUseCase
 {
-    private readonly AppDbContext _dbContext;
+    private readonly IJiraSyncConfigRepository _jiraSyncConfigRepository;
 
-    public CreateJiraSyncConfigUseCase(AppDbContext dbContext)
+    public CreateJiraSyncConfigUseCase(IJiraSyncConfigRepository jiraSyncConfigRepository)
     {
-        _dbContext = dbContext;
+        _jiraSyncConfigRepository = jiraSyncConfigRepository;
     }
 
     public async Task<JiraSyncConfig> ExecuteAsync(
@@ -19,39 +18,37 @@ public class CreateJiraSyncConfigUseCase : IJiraSyncConfigUseCase
         string projectKey,
         string url)
     {
-        var syncConfig = new JiraSyncConfig(userId, projectKey, url);
+        var syncConfig = new JiraSyncConfig
+        {
+            UserId = userId,
+            ProjectKey = projectKey,
+            Url = url
+        };
 
-        _dbContext.JiraSyncConfigs.Add(syncConfig);
-        await _dbContext.SaveChangesAsync();
-
-        return syncConfig;
+        return await _jiraSyncConfigRepository.AddAsync(syncConfig);
     }
 
     public async Task<JiraSyncConfig?> GetByIdAsync(Guid id)
     {
-        return await _dbContext.JiraSyncConfigs
-            .Include(syncConfig => syncConfig.User)
-            .FirstOrDefaultAsync(syncConfig => syncConfig.Id == id);
+        return await _jiraSyncConfigRepository.GetByIdAsync(id);
     }
 
     public async Task<List<JiraSyncConfig>> GetByUserIdAsync(Guid userId)
     {
-        return await _dbContext.JiraSyncConfigs
-            .Where(syncConfig => syncConfig.UserId == userId)
-            .ToListAsync();
+        return await _jiraSyncConfigRepository.GetByUserIdAsync(userId);
     }
 
     public async Task<bool> MarkSyncedAsync(Guid id, DateTime syncTime)
     {
-        var syncConfig = await _dbContext.JiraSyncConfigs.FirstOrDefaultAsync(syncConfig => syncConfig.Id == id);
+        var syncConfig = await _jiraSyncConfigRepository.GetByIdAsync(id);
 
         if (syncConfig is null)
         {
             return false;
         }
 
-        syncConfig.MarkSynced(syncTime);
-        await _dbContext.SaveChangesAsync();
+        syncConfig.LastSync = syncTime;
+        await _jiraSyncConfigRepository.UpdateAsync(syncConfig);
 
         return true;
     }

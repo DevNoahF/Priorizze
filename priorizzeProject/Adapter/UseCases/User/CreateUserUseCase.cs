@@ -1,6 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using priorizzeProject.Core.Interfaces;
-using priorizzeProject.Adapter.Persistence;
+using priorizzeProject.Core.Interfaces.Repositories;
 using priorizzeProject.Core.Models;
 using priorizzeProject.Core.Models.Enums;
 
@@ -8,11 +7,11 @@ namespace priorizzeProject.Adapter.UseCases;
 
 public class CreateUserUseCase : IUserUseCase
 {
-    private readonly AppDbContext _dbContext;
+    private readonly IUserRepository _userRepository;
 
-    public CreateUserUseCase(AppDbContext dbContext)
+    public CreateUserUseCase(IUserRepository userRepository)
     {
-        _dbContext = dbContext;
+        _userRepository = userRepository;
     }
 
     public async Task<User> ExecuteAsync(
@@ -26,34 +25,29 @@ public class CreateUserUseCase : IUserUseCase
         string? squadJiraKey = null,
         string? jiraTeamId = null)
     {
-        var user = new User(
-            name,
-            email,
-            role,
-            jiraAccountId,
-            jiraEmail,
-            jiraApiTokenEnc,
-            squadName,
-            squadJiraKey,
-            jiraTeamId);
+        var user = new User
+        {
+            Name = name,
+            Email = email,
+            Role = role,
+            JiraAccountId = jiraAccountId,
+            JiraEmail = jiraEmail,
+            JiraApiTokenEnc = jiraApiTokenEnc,
+            SquadName = squadName,
+            SquadJiraKey = squadJiraKey,
+            JiraTeamId = jiraTeamId
+        };
 
-        _dbContext.Users.Add(user);
-        await _dbContext.SaveChangesAsync();
-
-        return user;
+        return await _userRepository.AddAsync(user);
     }
 
     public async Task<User?> GetByIdAsync(Guid id)
     {
-        return await _dbContext.Users
-            .Include(user => user.JiraSyncConfigs)
-            .FirstOrDefaultAsync(user => user.Id == id);
+        return await _userRepository.GetByIdAsync(id);
     }
 
     public async Task<List<User>> GetAllAsync()
     {
-        return await _dbContext.Users
-            .Include(user => user.JiraSyncConfigs)
-            .ToListAsync();
+        return await _userRepository.GetAllAsync();
     }
 }

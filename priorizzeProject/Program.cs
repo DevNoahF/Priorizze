@@ -59,6 +59,9 @@ builder.Services.AddScoped<ICycleUseCase, CreateCycleUseCase>();
 builder.Services.AddScoped<ICycleRepository, CycleRepository>();
 builder.Services.AddScoped<IJiraProjectsRepository, JiraProjectsRepository>();
 builder.Services.AddScoped<IMetricsHistoryRepository, MetricsHistoryRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IKeyResultRepository, KeyResultRepository>();
+builder.Services.AddScoped<IJiraSyncConfigRepository, JiraSyncConfigRepository>();
 
 builder.Services.AddHttpClient();
 
