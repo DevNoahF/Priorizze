@@ -8,6 +8,8 @@ using System.Net.Sockets;
 using MySqlConnector;
 using priorizzeProject.Adapter.Persistence.Repositories;
 using priorizzeProject.Core.Interfaces.Repositories;
+using priorizzeProject.Integrations.Jira.Dispatching;
+using priorizzeProject.Integrations.Jira.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,6 +64,9 @@ builder.Services.AddScoped<IMetricsHistoryRepository, MetricsHistoryRepository>(
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IKeyResultRepository, KeyResultRepository>();
 builder.Services.AddScoped<IJiraSyncConfigRepository, JiraSyncConfigRepository>();
+builder.Services.AddScoped<IJiraWebhookDispatcher, JiraWebhookDispatcher>();
+builder.Services.AddScoped<IJiraWebhookEventHandler, JiraIssueWebhookHandler>();
+builder.Services.AddScoped<IJiraWebhookEventHandler, JiraCommentWebhookHandler>();
 
 builder.Services.AddHttpClient();
 
