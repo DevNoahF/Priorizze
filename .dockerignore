@@ -1,4 +1,3 @@
-﻿**/.dockerignore
 **/.env
 **/.git
 **/.gitignore
@@ -6,6 +5,7 @@
 **/.settings
 **/.toolstarget
 **/.vs
+**/.dotnet-home
 **/.vscode
 **/.idea
 **/*.*proj.user
@@ -14,7 +14,7 @@
 **/azds.yaml
 **/bin
 **/charts
-**/Dockerfile*
+**/docker-compose*
 **/node_modules
 **/npm-debug.log
 **/obj
