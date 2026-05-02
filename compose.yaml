@@ -1,6 +1,22 @@
-﻿services:
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: priorizze_api
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:5120
+      ConnectionStrings__DefaultConnection: Server=mysql;Port=3306;Database=${MYSQL_DATABASE};User=${MYSQL_USER};Password=${MYSQL_PASSWORD}
+    ports:
+      - "5120:5120"
+
   mysql:
-    image: mysql:8.0.0
+    image: mysql:8.0.39
     container_name: priorizze_mysql
     restart: always
     environment:
@@ -12,16 +28,23 @@
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-    env_file:
-      - .env
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u$${MYSQL_USER} -p$${MYSQL_PASSWORD} || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
 
   ngrok:
     image: ngrok/ngrok:latest
     restart: unless-stopped
+    command: http api:5120
+    depends_on:
+      - api
     environment:
       - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
     ports:
       - "4040:4040"
 
 volumes:
-  mysql_data: 
+  mysql_data:
